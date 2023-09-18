@@ -2,7 +2,7 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
 metadata:
-  name: podinfo
+  name: podinfov2
   namespace: workshop
 spec:
   image: ghcr.io/stefanprodan/podinfo
@@ -12,11 +12,11 @@ spec:
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
-  name: podinfo
+  name: podinfov2
   namespace: workshop
 spec:
   imageRepositoryRef:
-    name: podinfo
+    name: podinfov2
     namespace: workshop
   policy:
     semver:
@@ -25,7 +25,7 @@ spec:
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
 metadata:
-  name: podinfo
+  name: podinfov2
   namespace: workshop
 spec:
   interval: 5m

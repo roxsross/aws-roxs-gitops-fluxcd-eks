@@ -1,25 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: podinfo
+  name: podinfov2
 spec:
   selector:
     matchLabels:
-      app: podinfo
+      app: podinfov2
   template:
     metadata:
       labels:
-        app: podinfo
+        app: podinfov2
     spec:
       containers:
         - name: podinfod
-          image: ghcr.io/stefanprodan/podinfo:5.0.3 # {"$imagepolicy": "workshop:podinfo"}
+          image: ghcr.io/stefanprodan/podinfo:5.0.0 # {"$imagepolicy": "workshop:podinfov2"}
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
               containerPort: 9898
               protocol: TCP
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
