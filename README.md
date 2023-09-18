@@ -34,8 +34,10 @@ Material en Repositorio:
 [buildspec](./codebuild/resources/buildspec-build.yml)
 
 - K8s Tools, Varias herramientas utiles para usar en Cloud9 o en un entorno local. 
-    para instalar solo es necesario ./install.sh *recuerden darle permiso de ejecución*
-    [install](./k8stools/install.sh)
+    para instalar solo es necesario ./k8stools.sh *recuerden darle permiso de ejecución*
+    [install](./k8stools/k8stools.sh)
+    `chmod +x k8stools.sh`
+    `sudo ./k8stools.sh install`
 
 - Kustomize es una herramienta que nos sirve para “kustomizar” configuración de aplicaciones en Kubernetes, donde estaran las bases de nuestra demo
     [devfinder](./kustomize/apps.yaml)
