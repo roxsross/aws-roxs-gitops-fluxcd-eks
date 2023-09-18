@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dev-finder-deploy
+  labels:
+    app.kubernetes.io/created-by: eks-workshop
+    app.kubernetes.io/type: app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: dev-finder
+      app.kubernetes.io/instance: dev-finder
+      app.kubernetes.io/component: service
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: dev-finder
+        app.kubernetes.io/instance: dev-finder
+        app.kubernetes.io/component: service
+        app.kubernetes.io/created-by: eks-workshop
+    spec:
+      containers:
+      - name: devfinder-app
+        image: devfinder
+        envFrom:
+          - configMapRef:
+              name: env-vars-base-config      
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "50m"
+        ports:
+        - containerPort: 80
